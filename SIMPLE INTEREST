@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class Simple
+{
+public static void main(String args[])
+{
+Scanner sc=new Scanner(System.in);
+int p=sc.nextInt();
+int age=sc.nextInt();
+int t=sc.nextInt();
+int i;
+if(age<50)
+{
+   i=(p*t*10)/100;
+System.out.println("simple interest:" + i);
+}
+else
+{
+	i=(p*t*12)/100;
+	System.out.println("simple interest:" + i);
+}
+}
+}
