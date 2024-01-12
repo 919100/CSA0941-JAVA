@@ -1,0 +1,15 @@
+public class Type
+{
+    public static void main(String a[])
+    {
+        try
+        {
+            Class.forName("not exixts");
+        }
+        catch(ClassNotFoundException e)
+        {
+            System.out.println("me raised exception class not found");
+        }
+        System.out.println("program ends");
+    }
+}
