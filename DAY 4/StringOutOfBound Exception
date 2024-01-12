@@ -1,0 +1,17 @@
+public class StringIndexOutOfBoundsExceptionExample {
+    public static void main(String[] args) {
+        try {
+            String str = "Hello, World!";
+            char character = getCharacterAtIndex(str, 15);
+            System.out.println("Character at index 15: " + character); 
+        } catch (StringIndexOutOfBoundsException e) {
+            System.out.println("StringIndexOutOfBoundsException caught: " + e.getMessage());
+        } finally {
+            System.out.println("This block always gets executed.");
+        }
+    }
+
+       private static char getCharacterAtIndex(String str, int index) {
+        return str.charAt(index);
+    }
+}
