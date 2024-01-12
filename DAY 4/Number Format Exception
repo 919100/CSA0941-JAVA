@@ -1,0 +1,24 @@
+class Ex
+{
+public void display()
+{
+ try
+{
+  String s="java";
+  System.out.println("string length is"+Integer.parseInt(s));
+}
+catch(NumberFormatException e)
+{
+ System.out.println("me raised exception");
+}
+ System.out.println("program ends");
+}
+}	
+public class Ac
+{
+public static void main(String a[])
+{
+ Ex obj=new Ex();
+ obj.display();
+}
+}
