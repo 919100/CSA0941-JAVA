@@ -1,0 +1,35 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class IOExceptionExample {
+    public static void main(String[] args) {
+        try {
+            readFile("nonexistentfile.txt");
+        } catch (IOException e) {
+            System.out.println("IOException caught: " + e.getMessage());
+        } finally {
+            System.out.println("This block always gets executed.");
+        }
+    }
+
+    private static void readFile(String filePath) throws IOException {
+        BufferedReader reader = null;
+
+        try {
+            reader = new BufferedReader(new FileReader(filePath));
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        } finally {
+            if (reader != null) {
+                try {
+                    reader.close();
+                } catch (IOException e) {
+                    System.out.println("Error closing the file: " + e.getMessage());
+                }
+            }
+        }
+    }
+}
