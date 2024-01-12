@@ -1,0 +1,30 @@
+import java.util.Scanner;
+import java.util.NoSuchElementException;
+
+public class NoSuchElementExceptionExample {
+    public static void main(String[] args) {
+        try {
+            readNextElement();
+        } catch (NoSuchElementException e) {
+            System.out.println("NoSuchElementException caught: " + e.getMessage());
+        } finally {
+            System.out.println("This block always gets executed.");
+        }
+    }
+
+    private static void readNextElement() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter a string: ");
+
+        try {
+            String input = scanner.next();
+            System.out.println("Entered string: " + input);
+            
+            
+            String nextElement = scanner.next();
+            System.out.println("Next element: " + nextElement); 
+        } finally {
+            scanner.close();
+        }
+    }
+}
