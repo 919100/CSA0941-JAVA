@@ -1,0 +1,30 @@
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
+public class InputMismatchExceptionExample {
+    public static void main(String[] args) {
+        try {
+            int userInput = readIntegerInput();
+            System.out.println("User input: " + userInput); 
+        } catch (InputMismatchException e) {
+            System.out.println("InputMismatchException caught: " + e.getMessage());
+        } finally {
+            System.out.println("This block always gets executed.");
+        }
+    }
+
+   
+    private static int readIntegerInput() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter an integer: ");
+
+        try {
+            return scanner.nextInt();
+        } catch (InputMismatchException e) {
+            scanner.next();
+            throw new InputMismatchException("Invalid input. Please enter an integer.");
+        } finally {
+            scanner.close();
+        }
+    }
+}
