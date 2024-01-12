@@ -1,0 +1,13 @@
+public class MyClass {
+    private int myField;
+
+    public static void main(String[] args) {
+        try {
+
+            Class<?> myClass = MyClass.class;
+            myClass.getDeclaredField("nonExistentField");
+        } catch (NoSuchFieldException e) {
+            System.out.println("NoSuchFieldException: " + e.getMessage());
+        }
+    }
+}
